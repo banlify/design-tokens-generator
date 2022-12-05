@@ -23,12 +23,12 @@ export default defineConfig({
       dts: './shims/components.d.ts'
     }),
     router({
-      dts: './shims/router.d.ts',
+      dts: './shims/routers.d.ts',
       routesFolder: ['src/views']
     }),
     unimport.vite({
       dts: './shims/unimport.d.ts',
-      presets: ['vue', 'pinia'],
+      presets: ['vue', 'pinia', 'vue-router'],
       dirs: ['./src/composables/**/*']
     })
   ],

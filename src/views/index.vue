@@ -1,7 +1,6 @@
 <template>
-  {{ counter }}
+  <d-button>123</d-button>
 </template>
 
 <script lang="ts" setup>
-const counter = useCounter()
 </script>
