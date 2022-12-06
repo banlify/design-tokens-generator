@@ -54,7 +54,7 @@ declare global {
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
   const useAttrs: typeof import('vue')['useAttrs']
-  const useCounter: typeof import('C:/Users/pradmin/Desktop/design-tokens-kit/src/composables/use-counter')['default']
+  const useCounter: typeof import('C:/Users/pradmin/Desktop/design-tokens-generator/src/composables/use-counter')['default']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useRoute: typeof import('vue-router')['useRoute']

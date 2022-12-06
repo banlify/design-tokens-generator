@@ -1,1 +1,1 @@
-# Design Tokens Kit
+# Design Tokens Generator

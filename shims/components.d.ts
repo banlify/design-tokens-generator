@@ -9,7 +9,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Counter: typeof import('./../src/components/Counter.vue')['default']
     DButton: typeof import('./../src/components/DButton.vue')['default']
+    DDialog: typeof import('./../src/components/DDialog.vue')['default']
     DInput: typeof import('./../src/components/DInput.vue')['default']
+    ProjectBoard: typeof import('./../src/components/ProjectBoard.vue')['default']
+    ProjectCard: typeof import('./../src/components/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
