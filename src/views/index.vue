@@ -11,25 +11,23 @@ function onCreateButtonClick (): void {
 }
 
 function onCreateProject (project: ProjectBoard): void {
-  projects.value.push(project)
+  projects.value.unshift(project)
   setLocalCaches(unref(projects))
 }
 </script>
 
 <template>
-  <main class="flex flex-col h-full p-8">
-    <section class="mb-8 text-right">
+  <main class="flex flex-col min-h-full">
+    <create-project v-model="showDialog" @create-project="onCreateProject" />
+
+    <section class="py-8 px-16 text-right bg-#fff sticky top-0 left-0 z-1">
       <d-button variant="primary" @click="onCreateButtonClick">新建项目</d-button>
     </section>
 
-    <create-project-dialog v-model="showDialog" @create-project="onCreateProject" />
+    <ul v-if="projects.length" class="list-none gap-6 flex flex-wrap p-8 flex-1 flex justify-center">
+      <project-card v-for="project of projects" :key="project.id" :project="project" />
+    </ul>
 
-    <section class="flex-1 flex justify-center items-center overflow-overlay">
-      <ul v-if="projects.length" class="list-none gap-6 p-4 flex">
-        <project-card v-for="project of projects" :key="project.id" :project="project" />
-      </ul>
-
-      <span v-else class="pointer-events-none text-xl text-#000/40">暂无本地项目</span>
-    </section>
+    <p v-else class="pointer-events-none flex-1 flex justify-center items-center text-xl text-#000/40">暂无本地项目</p>
   </main>
 </template>

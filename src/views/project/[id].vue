@@ -1,21 +1,13 @@
 <template>
-  <h1>1231</h1>
+  <main class="flex flex-col min-h-full">
+    <section class="py-8 px-16 text-right bg-#fff sticky top-0 left-0 z-1">
+      <d-button @click="exportTokens">导出变量</d-button>
+    </section>
+  </main>
 </template>
 
-<script lang="ts">
-import { getLocalCaches } from '@/utils/parse'
-import { currentProject } from '@/states/project'
-import toast from '@/utils/toast'
-
-export default defineComponent({
-  beforeRouteEnter (to, _, next) {
-    if (!currentProject.value || !getLocalCaches().find(({ id }) => id === to.params.id)) {
-      toast('该项目不存在!')
-      next('/')
-      return
-    }
-
-    next()
-  }
-})
+<script lang="ts" setup>
+function exportTokens (): void {
+  console.log('line number: 10, exportTokens', exportTokens)
+}
 </script>

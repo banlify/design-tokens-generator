@@ -11,30 +11,32 @@ function onProjectClick (): void {
   currentProject.value = props.project
   router.push(`/project/${props.project.id}`)
 }
+
+function onRemoveClick (): void {
+  //
+}
 </script>
 
 <template>
-  <li class="group relative block h-80 w-60 cursor-pointer" @click="onProjectClick">
-    <i class="absolute inset-0 border-2 border-black color-bar"></i>
+  <li class="project-card group relative block h-80 w-60 overflow-hidden cursor-pointer">
+    <!-- <i class="absolute inset-0 border-2 border-black color-bar"></i> -->
 
-    <div class="relative flex w-full h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2.5 group-hover:-translate-y-2.5">
-      <div class="px-6 pb-6 transition-opacity group-hover:absolute group-hover:opacity-0">
+    <div class="relative flex w-full h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-y-10 z-1"  @click="onProjectClick">
+      <div class="px-6 pb-6">
         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-12 w-12">
           <use xlink:href="#earth" />
         </svg>
 
         <h2 class="mt-2 text-2xl font-medium">{{ project.name }}</h2>
-      </div>
-
-      <div class="absolute p-6 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
-        <h3 class="mt-2 text-2xl font-medium">{{ project.name }}</h3>
-
         <p class="mt-2">{{ project.description }}</p>
       </div>
     </div>
+
+    <button class="absolute left-0 bottom-0 z-0 w-full border-2 text-14px leading py-2 transition-background-color bg-red-300 hover:bg-red-400 rounded-0 border-0 cursor-pointer" @click="onRemoveClick">删除项目</button>
   </li>
 </template>
 
+<!--
 <style scoped>
 .color-bar {
   background-image: linear-gradient(45deg,
@@ -45,4 +47,4 @@ function onProjectClick (): void {
     var(--color-5) 70.5%, var(--color-6) 70.5%,
     var(--color-6) 85%, var(--color-7) 85%)
 }
-</style>
+</style> -->

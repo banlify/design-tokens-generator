@@ -7,14 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Counter: typeof import('./../src/components/Counter.vue')['default']
-    CreateProjectDialog: typeof import('./../src/components/CreateProjectDialog.vue')['default']
-    DButton: typeof import('./../src/components/DButton.vue')['default']
-    DInput: typeof import('./../src/components/DInput.vue')['default']
-    DToast: typeof import('./../src/components/DToast/index.vue')['default']
-    ProjectBoard: typeof import('./../src/components/ProjectBoard.vue')['default']
-    ProjectCard: typeof import('./../src/components/ProjectCard.vue')['default']
+    CreateIcon: typeof import('./../src/components/special/CreateIcon.vue')['default']
+    CreateProject: typeof import('./../src/components/bussiness/CreateProject.vue')['default']
+    DButton: typeof import('./../src/components/common/DButton.vue')['default']
+    DDialog: typeof import('./../src/components/common/DDialog.vue')['default']
+    DInput: typeof import('./../src/components/common/DInput.vue')['default']
+    ProjectCard: typeof import('./../src/components/bussiness/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TrashIcon: typeof import('./../src/components/special/TrashIcon.vue')['default']
   }
 }

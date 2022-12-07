@@ -35,16 +35,6 @@ const addToast = (toast: HTMLOutputElement): void => {
     : Toaster.appendChild(toast)
 }
 
-const Toast = (text: string): void => {
-  const toast = createToast(text)
-  addToast(toast)
-
-  void Promise.allSettled(toast.getAnimations()
-    .map(async animation => await animation.finished)
-  )
-    .then(() => Toaster.removeChild(toast))
-}
-
 // https://aerotwist.com/blog/flip-your-animations/
 const flipToast = (toast: HTMLOutputElement): void => {
   // FIRST
@@ -73,4 +63,12 @@ const flipToast = (toast: HTMLOutputElement): void => {
 
 const Toaster = initToaster()
 
-export default Toast
+export function useToast (text: string): void {
+  const toast = createToast(text)
+  addToast(toast)
+
+  void Promise.allSettled(toast.getAnimations()
+    .map(async animation => await animation.finished)
+  )
+    .then(() => Toaster.removeChild(toast))
+}

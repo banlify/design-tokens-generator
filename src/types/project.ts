@@ -1,9 +1,9 @@
 interface ProjectTokens {
-  $type: string
+  type: string
   tokens: Array<{
     [key: string]: {
-      $value: string
-      $description: string
+      value: string
+      description: string
     }
   }>
 }

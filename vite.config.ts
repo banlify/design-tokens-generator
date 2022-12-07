@@ -28,7 +28,7 @@ export default defineConfig({
     }),
     unimport.vite({
       dts: './shims/unimport.d.ts',
-      presets: ['vue', 'vue-router'],
+      presets: ['vue', 'vue-router', '@vueuse/core'],
       dirs: ['./src/composables/**/*']
     })
   ],

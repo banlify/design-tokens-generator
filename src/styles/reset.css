@@ -52,6 +52,7 @@ a {
 
 #app {
   isolation: isolate;
+  overflow: overlay;
 }
 
 .list-none {
