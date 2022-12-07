@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
     <div v-if="modelValue" class="dialog-mask"></div>
-    <div v-if="modelValue" class="fixed top-50% left-50% translate-x--50% translate-y--50% p-6 border-2 bg-#fff w-120 backdrop:bg-#000/35 shadow-lg z-1">
+    <div v-if="modelValue" class="fixed top-50% left-50% translate-x--50% translate-y--50% p-6 b-2 bg-#fff w-120 backdrop:bg-#000/35 shadow-lg z-1">
 
       <slot />
 

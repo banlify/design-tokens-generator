@@ -14,6 +14,11 @@ function onCreateProject (project: ProjectBoard): void {
   projects.value.unshift(project)
   setLocalCaches(unref(projects))
 }
+
+function onRemoveItem (project: ProjectBoard): void {
+  projects.value.splice(projects.value.indexOf(project), 1)
+  setLocalCaches(unref(projects))
+}
 </script>
 
 <template>
@@ -25,7 +30,7 @@ function onCreateProject (project: ProjectBoard): void {
     </section>
 
     <ul v-if="projects.length" class="list-none gap-6 flex flex-wrap p-8 flex-1 flex justify-center">
-      <project-card v-for="project of projects" :key="project.id" :project="project" />
+      <project-card v-for="project of projects" :key="project.id" :project="project" @remove-item="onRemoveItem" />
     </ul>
 
     <p v-else class="pointer-events-none flex-1 flex justify-center items-center text-xl text-#000/40">暂无本地项目</p>

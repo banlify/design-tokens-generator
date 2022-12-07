@@ -12,9 +12,15 @@ declare module '@vue/runtime-core' {
     DButton: typeof import('./../src/components/common/DButton.vue')['default']
     DDialog: typeof import('./../src/components/common/DDialog.vue')['default']
     DInput: typeof import('./../src/components/common/DInput.vue')['default']
+    ExportIcon: typeof import('./../src/components/special/ExportIcon.vue')['default']
+    PinedIcon: typeof import('./../src/components/special/PinedIcon.vue')['default']
+    PinIcon: typeof import('./../src/components/special/PinIcon.vue')['default']
     ProjectCard: typeof import('./../src/components/bussiness/ProjectCard.vue')['default']
+    RemoveIcon: typeof import('./../src/components/special/RemoveIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StaredIcon: typeof import('./../src/components/special/StaredIcon.vue')['default']
+    StarIcon: typeof import('./../src/components/special/StarIcon.vue')['default']
     TrashIcon: typeof import('./../src/components/special/TrashIcon.vue')['default']
   }
 }

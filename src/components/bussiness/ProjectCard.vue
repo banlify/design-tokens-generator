@@ -1,7 +1,10 @@
 <script lang="ts" setup>
-import type { ProjectBoard } from '@/types/project'
 import { currentProject } from '@/states/project'
+import type { ProjectBoard } from '@/types/project'
 
+const emits = defineEmits<{
+  (n: 'remove-item', v: ProjectBoard): void
+}>()
 const props = defineProps<{
   project: ProjectBoard
 }>()
@@ -13,38 +16,38 @@ function onProjectClick (): void {
 }
 
 function onRemoveClick (): void {
-  //
+  emits('remove-item', props.project)
 }
 </script>
 
 <template>
-  <li class="project-card group relative block h-80 w-60 overflow-hidden cursor-pointer">
-    <!-- <i class="absolute inset-0 border-2 border-black color-bar"></i> -->
+  <li class="project-card relative color-bar flex items-end h-78 w-56 overflow-hidden cursor-pointer transition b-2 bg-white" title="查看项目详情" @click="onProjectClick">
+    <button class="group absolute top-0 right-0 b-b-2 b-l-2 b-r-0 b-t-0 b-black text-14px flex items-center justify-center text-right w-30 h-10 bg-red-300 hover:bg-red-400 cursor-pointer hover:text-#fff" @click.stop="onRemoveClick">
+      <remove-icon class="transition-transform group-hover:translate-x--1" />&nbsp;
+      <span>删除项目</span>
+    </button>
 
-    <div class="relative flex w-full h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-y-10 z-1"  @click="onProjectClick">
-      <div class="px-6 pb-6">
-        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-12 w-12">
-          <use xlink:href="#earth" />
-        </svg>
+    <div class="px-6 pb-6 w-full">
+      <svg aria-hidden="true" fill="none" stroke="currentColor" class="h-12 w-12">
+        <use xlink:href="#earth" />
+      </svg>
 
-        <h2 class="mt-2 text-2xl font-medium">{{ project.name }}</h2>
-        <p class="mt-2">{{ project.description }}</p>
-      </div>
+      <h2 class="mt-2 text-2xl font-medium">{{ project.name }}</h2>
+      <p>{{ project.description }}</p>
     </div>
-
-    <button class="absolute left-0 bottom-0 z-0 w-full border-2 text-14px leading py-2 transition-background-color bg-red-300 hover:bg-red-400 rounded-0 border-0 cursor-pointer" @click="onRemoveClick">删除项目</button>
   </li>
 </template>
 
-<!--
 <style scoped>
-.color-bar {
-  background-image: linear-gradient(45deg,
+.color-bar:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, .15);
+  border-image: linear-gradient(45deg,
     var(--color-1) 14.5%, var(--color-2) 14.5%,
     var(--color-2) 29%, var(--color-3) 29%,
     var(--color-3) 42.5%, var(--color-4) 42.5%,
     var(--color-4) 57%, var(--color-5) 57%,
     var(--color-5) 70.5%, var(--color-6) 70.5%,
-    var(--color-6) 85%, var(--color-7) 85%)
+    var(--color-6) 85%, var(--color-7) 85%) 1
 }
-</style> -->
+</style>

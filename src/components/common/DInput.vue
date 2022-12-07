@@ -1,5 +1,5 @@
 <template>
-  <input v-model="inputValue" type="text" autocomplete="off" class="outline-0 transition px-4 py-1.75 border-2 border-transparent bg-#05060f0a rounded-0 text-14px block w-full" />
+  <input v-model="inputValue" type="text" autocomplete="off" class="outline-0 transition px-4 py-1.75 b-2 b-transparent bg-#05060f0a rounded-0 text-14px block w-full" />
 </template>
 
 <script lang="ts" setup>
@@ -29,6 +29,6 @@ input:not([disabled]):focus {
 
 input:not(:focus, [disabled]):hover {
   border-color: #05060f;
-  background: #05060f15
+  background: #05060f20
 }
 </style>
