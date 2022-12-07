@@ -32,11 +32,11 @@ const statusClassName = computed(() => {
 </script>
 
 <template>
-  <button class="border-none bg-transparent p-0 group relative inline-block cursor-pointer mb-2 mr-2">
+  <button class="border-none bg-transparent p-0 group relative inline-block cursor-pointer select-none">
     <i class="absolute inset-0 translate-x-1.5 translate-y-1.5 transition-transform pointer-events-none group-hover:translate-y-0 group-hover:translate-x-0"
       :class="statusClassName.normal"></i>
     <span
-      class="relative inline-block border-2 border-current text-right w-36 px-10px py-2 text-sm font-bold uppercase tracking-widest"
+      class="relative inline-block border-2 text-right w-36 px-10px py-2 text-sm font-bold uppercase tracking-widest"
       :class="statusClassName.active">
       <slot />
     </span>

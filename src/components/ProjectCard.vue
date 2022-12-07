@@ -1,13 +1,20 @@
 <script lang="ts" setup>
 import type { ProjectBoard } from '@/types/project'
+import { currentProject } from '@/states/project'
 
-defineProps<{
+const props = defineProps<{
   project: ProjectBoard
 }>()
+
+const router = useRouter()
+function onProjectClick (): void {
+  currentProject.value = props.project
+  router.push(`/project/${props.project.id}`)
+}
 </script>
 
 <template>
-  <li class="group relative block h-80 w-60 cursor-pointer">
+  <li class="group relative block h-80 w-60 cursor-pointer" @click="onProjectClick">
     <i class="absolute inset-0 border-2 border-black color-bar"></i>
 
     <div class="relative flex w-full h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2.5 group-hover:-translate-y-2.5">

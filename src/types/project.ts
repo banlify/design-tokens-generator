@@ -9,6 +9,7 @@ interface ProjectTokens {
 }
 
 export interface ProjectBoard {
+  id: string
   name: string
   description: string
   tokens: {

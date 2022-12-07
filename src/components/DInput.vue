@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 const emits = defineEmits<{
-  (name: 'input', e: string): void
+  (name: 'update:modelValue', e: string): void
 }>()
 
 const props = defineProps<{
@@ -16,7 +16,7 @@ const inputValue = computed({
     return props.modelValue
   },
   set (value) {
-    emits('input', value)
+    emits('update:modelValue', value)
   }
 })
 </script>

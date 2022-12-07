@@ -1,8 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
 }
-
 
 body, ul {
   margin: 0
@@ -24,6 +22,9 @@ body {
   --color-5: #f8b85c;
   --color-6: #6acab5;
   --color-7: #10b981;
+
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 img, picture, video, canvas, svg {
@@ -33,6 +34,11 @@ img, picture, video, canvas, svg {
 
 input, button, textarea, select {
   font: inherit;
+}
+
+:where(input, button, textarea, select)::placeholder {
+  user-select: none;
+  opacity: .75;
 }
 
 p, h1, h2, h3, h4, h5, h6 {

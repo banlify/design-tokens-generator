@@ -3,17 +3,14 @@
 </template>
 
 <script lang="ts">
-import { PROJECT_LOCAL_CACHE_KEY } from '@/utils/constants'
+import { getLocalCaches } from '@/utils/parse'
+import { currentProject } from '@/states/project'
+import toast from '@/utils/toast'
 
 export default defineComponent({
   beforeRouteEnter (to, _, next) {
-    const CACHE_KEY = `${PROJECT_LOCAL_CACHE_KEY}${to.params.id}`
-    const localTokensValue = localStorage.getItem(CACHE_KEY)
-
-    if (
-      !localTokensValue ||
-      ['undefined', 'null'].includes(`${localTokensValue}`)
-    ) {
+    if (!currentProject.value || !getLocalCaches().find(({ id }) => id === to.params.id)) {
+      toast('该项目不存在!')
       next('/')
       return
     }
