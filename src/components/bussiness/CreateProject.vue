@@ -59,7 +59,14 @@ function onSubmit (): void {
   const project = {
     name,
     description,
-    tokens: {},
+    tokens: {
+      // Background: [{
+      //   type: '',
+      //   name: '',
+      //   value: '#f00',
+      //   description: ''
+      // }]
+    },
     id: Math.random().toString(32).slice(2)
   }
 

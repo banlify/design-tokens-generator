@@ -15,16 +15,27 @@ function onProjectClick (): void {
   router.push(`/project/${props.project.id}`)
 }
 
+let timeoutId = 0
+
 function onRemoveClick (): void {
+  if (!timeoutId) {
+    timeoutId = window.setTimeout(() => {
+      useToast('再次点击删除项目后即可成功删除')
+      timeoutId = 0
+    }, 300)
+    return
+  }
+
+  clearTimeout(timeoutId)
   emits('remove-item', props.project)
 }
 </script>
 
 <template>
-  <li class="project-card relative color-bar flex items-end h-78 w-56 overflow-hidden cursor-pointer transition b-2 bg-white" title="查看项目详情" @click="onProjectClick">
-    <button class="group absolute top-0 right-0 b-b-2 b-l-2 b-r-0 b-t-0 b-black text-14px flex items-center justify-center text-right w-30 h-10 bg-red-300 hover:bg-red-400 cursor-pointer hover:text-#fff" @click.stop="onRemoveClick">
-      <remove-icon class="transition-transform group-hover:translate-x--1" />&nbsp;
-      <span>删除项目</span>
+  <li class="project-card relative border-image flex items-end h-78 w-56 overflow-hidden cursor-pointer transition b-2 bg-white" title="查看项目详情" @click="onProjectClick">
+    <button class="group absolute top-0 right-0 font-bold b-b-2 b-l-2 b-r-0 b-t-0 b-black text-14px flex items-center justify-center text-right w-28 h-10 bg-red-400 hover:bg-red-500 cursor-pointer hover:text-#fff" @click.stop="onRemoveClick">
+      <remove-icon class="transition-transform group-hover:translate-x--1" />
+      <span>&nbsp;删除项目</span>
     </button>
 
     <div class="px-6 pb-6 w-full">
@@ -39,7 +50,7 @@ function onRemoveClick (): void {
 </template>
 
 <style scoped>
-.color-bar:hover {
+.border-image:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 12px rgba(0, 0, 0, .15);
   border-image: linear-gradient(45deg,

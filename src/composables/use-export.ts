@@ -13,7 +13,7 @@ function downloadJSONToLocal ({ json, filename }: { json: string, filename: stri
 
 export function useExport (project: ProjectBoard): void {
   downloadJSONToLocal({
-    json: JSON.stringify(project),
-    filename: project.name
+    filename: project.name,
+    json: JSON.stringify(project, null, 2)
   })
 }

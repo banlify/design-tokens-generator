@@ -18,6 +18,7 @@ function onCreateProject (project: ProjectBoard): void {
 function onRemoveItem (project: ProjectBoard): void {
   projects.value.splice(projects.value.indexOf(project), 1)
   setLocalCaches(unref(projects))
+  useToast(`成功删除项目【${project.name}】`)
 }
 </script>
 

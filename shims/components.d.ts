@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     StaredIcon: typeof import('./../src/components/special/StaredIcon.vue')['default']
     StarIcon: typeof import('./../src/components/special/StarIcon.vue')['default']
+    TokenTable: typeof import('./../src/components/bussiness/TokenTable.vue')['default']
     TrashIcon: typeof import('./../src/components/special/TrashIcon.vue')['default']
   }
 }
