@@ -1,17 +1,25 @@
 import type { ProjectTokens } from '@/types/project'
 
-export function useGenerate (tokens: ProjectTokens[]): string {
-  const _tokens = JSON.stringify(
-    tokens.reduce<Record<string, string>>((acc, { name, value, description }) => {
-      if (name && value) {
-        acc['--' + name] = value + ';'
-      }
+export function useGenerateCSS (tokens: ProjectTokens[]): string {
+  const tokenString = tokens.reduce<string>((acc, { name, value, description }) => {
+    if (name && value) {
+      acc += `\n  --${name}: ${value}; ${description && `/* ${description} */`}`
+    }
 
-      return acc
-    }, {}),
-    null,
-    2
-  )
+    return acc
+  }, ':root {')
 
-  return ':root ' + _tokens.replace(/"/g, '')
+  return tokenString + '\n}'
+}
+
+export function useGenerateScss (tokens: ProjectTokens[]): string {
+  const tokenString = tokens.reduce<string>((acc, { name, value, description }) => {
+    if (name && value) {
+      acc += `$${name}: ${value}; ${description && `/* ${description} */`}\n`
+    }
+
+    return acc
+  }, '')
+
+  return tokenString
 }

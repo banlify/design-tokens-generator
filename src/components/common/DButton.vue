@@ -49,7 +49,7 @@ const statusClassName = computed(() => {
 
 <style>
 .d-button {
-  animation: throttle .5s step-end forwards;
+  animation: throttle .3s step-end forwards;
 }
 
 .d-button:active {

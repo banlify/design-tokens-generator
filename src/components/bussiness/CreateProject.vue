@@ -56,14 +56,14 @@ function onSubmit (): void {
   }
 
   const project = {
+    id: Math.random().toString(32).slice(2),
     name,
     description,
     tokens: [{
-      name: '主题色',
+      name: 'theme-color',
       value: '#1890ff',
       description: '主题色'
-    }],
-    id: Math.random().toString(32).slice(2)
+    }]
   }
 
   emits('create-project', project)

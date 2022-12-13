@@ -3,7 +3,7 @@ import type { ProjectBoard } from '@/types/project'
 function downloadJSONToLocal ({ json, filename }: { json: string, filename: string }): void {
   const element = Object.assign(document.createElement('a'), {
     download: filename,
-    href: `data:application/json;charset=utf-8,${json}`
+    href: window.URL.createObjectURL(new Blob([json], { type: 'application/json' }))
   })
 
   document.body.appendChild(element)
