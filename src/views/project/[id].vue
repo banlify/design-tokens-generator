@@ -9,12 +9,15 @@
     </section>
 
     <section class="flex flex-1">
-      <section class="w-500px p-4 flex flex-col" style="height:calc(100vh - 6.5rem)">
-        <output class="flex-1 overflow-overlay text-sm p-4 bg-gray-300" style="user-select: all">
-          <pre class="m-0">{{ cssVars }}</pre>
+      <section class="w-500px p-4 flex flex-col relative" style="height:calc(100vh - 6.5rem)">
+        <span class="absolute left-4 top-0 text-12px opacity-50 pointer-events-none">CSS</span>
+        <output class="relative flex-1 overflow-y-scroll text-sm bg-gray-100" style="user-select: all">
+          <pre class="m-6">{{ cssVars }}</pre>
         </output>
-        <output class="flex-1 overflow-overlay text-sm mt-4 p-4 bg-gray-300" style="user-select: all">
-          <pre class="m-0">{{ scssVars }}</pre>
+
+        <span class="absolute left-4 top-50% translate-y--50% text-12px opacity-50 pointer-events-none">SCSS</span>
+        <output class="relative flex-1 overflow-y-scroll text-sm mt-4 bg-gray-100" style="user-select: all">
+          <pre class="m-6">{{ scssVars }}</pre>
         </output>
       </section>
 
