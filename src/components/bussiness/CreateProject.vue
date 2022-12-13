@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { PROJECT_LOCAL_CACHE_KEY } from '@/utils/constants'
 import type { ProjectBoard } from '@/types/project'
 
 const emits = defineEmits<{
@@ -59,20 +58,15 @@ function onSubmit (): void {
   const project = {
     name,
     description,
-    tokens: {
-      // Background: [{
-      //   type: '',
-      //   name: '',
-      //   value: '#f00',
-      //   description: ''
-      // }]
-    },
+    tokens: [{
+      name: '主题色',
+      value: '#1890ff',
+      description: '主题色'
+    }],
     id: Math.random().toString(32).slice(2)
   }
 
   emits('create-project', project)
-
-  localStorage.setItem(PROJECT_LOCAL_CACHE_KEY + name, JSON.stringify(project))
 
   closeDialog()
 }

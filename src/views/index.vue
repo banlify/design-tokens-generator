@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { getLocalCaches, setLocalCaches } from '@/utils/parse'
+import { setLocalCaches } from '@/utils/parse'
 import type { ProjectBoard } from '@/types/project'
+import { projects } from '@/states/project'
 
 const showDialog = ref(false)
-
-const projects = ref<ProjectBoard[]>(getLocalCaches())
 
 function onCreateButtonClick (): void {
   showDialog.value = true

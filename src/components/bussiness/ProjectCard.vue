@@ -20,7 +20,7 @@ let timeoutId = 0
 function onRemoveClick (): void {
   if (!timeoutId) {
     timeoutId = window.setTimeout(() => {
-      useToast('再次点击删除项目后即可成功删除')
+      useToast('双击删除项目后即可成功删除')
       timeoutId = 0
     }, 300)
     return

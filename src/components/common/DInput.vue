@@ -1,5 +1,5 @@
 <template>
-  <input v-model="inputValue" type="text" autocomplete="off" class="border-0 outline-2 outline-solid outline-transparent px-3 py-1 b-2 b-transparent rounded-0 text-14px block w-full" />
+  <input v-model="inputValue" type="text" autocomplete="off" class="border-0 outline-2 outline-solid outline-transparent px-3 py-1.75 b-2 b-transparent rounded-0 text-14px block w-full" />
 </template>
 
 <script lang="ts" setup>
