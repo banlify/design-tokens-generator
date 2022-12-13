@@ -14,7 +14,7 @@
           <d-button variant="primary" @click="exportTokens">导出配置</d-button>
         </div>
 
-        <output class="flex-1 h-full mt-4 p-4 overflow-overlay bg-gray-300">
+        <output class="flex-1 h-full mt-4 p-4 bg-gray-300" style="user-select: all">
           <pre class="m-0">{{ outputContent }}</pre>
         </output>
       </section>
